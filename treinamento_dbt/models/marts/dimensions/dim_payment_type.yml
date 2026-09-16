@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_payment_type
+    description: "Dimensão de tipos de pagamento"
+    columns:
+      - name: payment_type
+        description: "Código do tipo de pagamento (chave primária)"
+        tests:
+          - unique
+          - not_null
+
+      - name: payment_type_name
+        description: "Descrição do tipo de pagamento"

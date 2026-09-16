@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: "Dimensão de localizações (zonas de táxi)"
+    columns:
+      - name: location_id
+        description: "ID da localização (chave primária)"
+        tests:
+          - unique
+          - not_null
+
+      - name: sk_location_id
+        description: "Surrogate key da localização"
+        tests:
+          - unique
+          - not_null

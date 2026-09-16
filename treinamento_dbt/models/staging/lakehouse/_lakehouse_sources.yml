@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: lakehouse_treinamento
+    description: "Lakehouse contendo dados para treinamento do time"
+    database: LakehouseTreinamento
+    schema: dbo
+
+    # Alertas se dados estiverem desatualizados
+    freshness:
+      warn_after: { count: 24, period: hour }
+      error_after: { count: 7, period: day }
+
+    tables:
+      - name: taxi
+        loaded_at_field: lpepPickupDatetime
+        description: "Dados de viagens de táxi do lakehouse"
+        columns:
+          - name: vendorID
+            description: "ID do fornecedor de dados (1=CMT, 2=VTS)"
+            tests:
+              - not_null
+
+          - name: lpepPickupDatetime
+            description: "Data e hora de início da viagem"
+            tests:
+              - not_null
+
+          - name: lpepDropoffDatetime
+            description: "Data e hora de término da viagem"
+
+          - name: passengerCount
+            description: "Número de passageiros na viagem"
+
+          - name: tripDistance
+            description: "Distância da viagem em milhas"
+
+          - name: puLocationId
+            description: "ID da localização de pickup"
+
+          - name: doLocationId
+            description: "ID da localização de dropoff"
+
+          - name: paymentType
+            description: "Tipo de pagamento (1=Cartão, 2=Dinheiro, 3=Sem cobrança, etc.)"
+
+          - name: fareAmount
+            description: "Valor da tarifa"
+
+          - name: totalAmount
+            description: "Valor total da viagem"

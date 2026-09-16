@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_rate_code
+    description: "Dimensão de códigos de tarifa"
+    columns:
+      - name: rate_code_id
+        description: "ID do código de tarifa (chave primária)"
+        tests:
+          - unique
+          - not_null
+
+      - name: rate_code_name
+        description: "Descrição do código de tarifa"
+
+      - name: is_airport_trip
+        description: "Indicador de viagem de/para aeroporto (1=JFK/Newark, 0=Outros)"

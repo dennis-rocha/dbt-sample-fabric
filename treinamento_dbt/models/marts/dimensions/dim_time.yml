@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_time
+    description: "Dimensão de tempo (horários do dia)"
+    columns:
+      - name: time
+        description: "Hora e minuto (HH:MM:SS) - chave primária"
+        tests:
+          - unique
+          - not_null
+
+      - name: hour
+        description: "Hora (0-23)"
+
+      - name: minute
+        description: "Minuto (0-59)"
+
+      - name: time_24h
+        description: "Horário formatado no padrão 24h (HH:mm) para visualizações"
+
+      - name: period_of_day
+        description: "Período do dia (Madrugada, Manhã, Tarde, Noite)"
+
+      - name: is_rush_hour
+        description: "Indica horário de pico (0=Não, 1=Sim)"

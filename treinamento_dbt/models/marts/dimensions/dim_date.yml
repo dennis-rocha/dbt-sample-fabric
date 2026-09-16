@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Dimensão conformed de data com todos os atributos de calendário"
+    columns:
+      - name: date
+        description: "Data (chave primária)"
+        tests:
+          - unique
+          - not_null
+
+      - name: year
+        description: "Ano (YYYY)"
+        tests:
+          - not_null
+
+      - name: month
+        description: "Mês (1-12)"
+        tests:
+          - not_null
+
+      - name: is_weekend
+        description: "Indicador de final de semana (0=Não, 1=Sim)"
+
+      - name: quarter
+        description: "Trimestre (1-4)"

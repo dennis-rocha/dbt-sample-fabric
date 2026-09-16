@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_vendor
+    description: "Dimensão de fornecedores de dados"
+    columns:
+      - name: vendor_id
+        description: "ID do fornecedor (chave primária)"
+        tests:
+          - unique
+          - not_null
+
+      - name: vendor_name
+        description: "Nome completo do fornecedor"
+
+      - name: vendor_abbreviation
+        description: "Sigla do fornecedor"
